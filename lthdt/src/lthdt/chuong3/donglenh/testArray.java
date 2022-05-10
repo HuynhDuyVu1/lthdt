@@ -55,6 +55,33 @@ public class testArray {
         }
         System.out.println(Arrays.toString(c));
         
+         Arrays.sort(c);
+         System.out.println("Mang sau khi sap xep tang dan la ");
+         System.out.println(Arrays.toString(c));
+        
+        // tim kiem vet can
+        System.out.print("Nhap gia tri can tim kiem x = ");
+        input = sc.nextLine();
+        int x = Integer.parseInt(input);
+        
+        int index = Arrays.binarySearch(c, x);
+        if (index < 0){
+            System.out.println("Khong tim thay");
+        }else{
+             System.out.println("Tim thay tai vi tri thu " + index);
+        }
+//        boolean flag = true; 
+//        
+//        for(int i = 0; i < c.length;i++){
+//           if(c[i] == x){
+//              System.out.print("Gia tri can tim kiem co trong mang o vi tri " + i);
+//              flag = true;
+//              break;
+//           }
+//        }
+//        if (!flag){
+//              System.out.println("Gia tri can tim kiem ko co trong mang");
+//        }
 //        int temp;
 //          for (int i = 0; i< n-1; i++)
 //              for (int j = i + 1; j< n; j++){
@@ -65,8 +92,8 @@ public class testArray {
 //          }
 //          }
 //           System.out.println(Arrays.toString(c));
-        Arrays.sort(c);
-         System.out.println(Arrays.toString(c));
+//        Arrays.sort(c);
+//         System.out.println(Arrays.toString(c));
     }
     
 }
