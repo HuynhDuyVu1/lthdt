@@ -189,6 +189,7 @@ public class EmployeeGUI extends javax.swing.JFrame {
                 obj.setHocbong(0);             
         }
          SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+         
          DefaultTableModel model = (DefaultTableModel)tbSinhvien.getModel();
          model.insertRow(model.getRowCount(), new Object[]{model.getRowCount()+1,obj.getHoten(),
          df.format(obj.getNgaysinh()),obj.getTruonghoc(),
