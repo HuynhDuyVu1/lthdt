@@ -122,6 +122,7 @@ public class xuatnhap extends javax.swing.JFrame {
         double b = Double.parseDouble(txtSothuc.getText());
         result = result + "; so nguyen = " + a + "; so thuc = " + b;
         txtkq.append(result);
+       
     }//GEN-LAST:event_butNhapActionPerformed
 
     /**
