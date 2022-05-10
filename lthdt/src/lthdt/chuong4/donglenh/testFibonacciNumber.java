@@ -3,21 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lthdt;
+package lthdt.chuong4.donglenh;
+
+import lthdt.chuong4.logic.FibonacciNumber;
 
 /**
  *
  * @author vuhuy
  */
-public class Lthdt {
+public class testFibonacciNumber {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Hello world!!!");
-       
+        FibonacciNumber fn = new FibonacciNumber();
+        System.out.println("So Fibonacci tai vi tri n = 15 la " + fn.calcFibo(15));
+        for (int i = 1; i <= 20; i++){
+            System.out.print(fn.calcFibo(i) + ", ");
+        }
     }
     
 }
