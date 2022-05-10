@@ -5,6 +5,10 @@
  */
 package lthdt.chuong5.dohoa;
 
+import java.io.File;
+import javax.swing.tree.DefaultMutableTreeNode;
+import lthdt.chuong5.logic.FileAndDirectoryOperations;
+import lthdt.chuong5.logic.FileTreeModel;
 import lthdt.chuong5.logic.TreeDemoModel;
 
 /**
@@ -12,14 +16,16 @@ import lthdt.chuong5.logic.TreeDemoModel;
  * @author vuhuy
  */
 public class TreeDemo extends javax.swing.JFrame {
+    FileTreeModel tree;
 
     /**
      * Creates new form TreeDemo
      */
     public TreeDemo() {
         initComponents();
-        TreeDemoModel model = new TreeDemoModel();
-        this.jTree.setModel(model);
+//        TreeDemoModel model = new TreeDemoModel();
+        tree = new FileTreeModel("D:\\BlueStacks_nxt");
+        this.jTree.setModel(tree);
     }
 
     /**
@@ -40,6 +46,11 @@ public class TreeDemo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Minh họa sử dụng JT");
 
+        jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                jTreeValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTree);
 
         jSplitPane1.setLeftComponent(jScrollPane1);
@@ -63,6 +74,17 @@ public class TreeDemo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
+        // TODO add your handling code here:
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) jTree.getLastSelectedPathComponent();
+        if (node == null)
+            return;
+        File nodeInfo = (File) node.getUserObject();
+        FileAndDirectoryOperations fo = new FileAndDirectoryOperations();
+        File[] list = fo.getDiractoryContent(nodeInfo.getPath());
+        this.jTextArea.setText(fo.displayContent(list));
+    }//GEN-LAST:event_jTreeValueChanged
 
     /**
      * @param args the command line arguments
