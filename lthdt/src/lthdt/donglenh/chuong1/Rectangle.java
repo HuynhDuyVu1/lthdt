@@ -9,7 +9,7 @@ package lthdt.donglenh.chuong1;
  *
  * @author vuhuy
  */
-public class Rectangle {
+public class Rectangle extends Shape{
     private int upper_x;
     private int  upper_y;
     private int lower_x;
@@ -25,14 +25,26 @@ public class Rectangle {
         this.lower_y = lower_y;
     }
     
+    @Override
     public double calcPerimeter(){
         return (2*Math.abs(upper_x - lower_x)+(Math.abs(upper_y - lower_y)));
     }
     
+    @Override
     public double calcArea(){
-        return Math.abs(upper_x- lower_x)*(Math.abs(upper_y - lower_y));
+        return Math.abs((upper_x - lower_x)*(upper_y - lower_y));
     }
 
+    @Override
+    public String toString() {
+        String output = "Chu vi hinh chu nhat la: " + calcPerimeter() + 
+                " ; dien tich la: " + calcArea();
+        return output;
+    }
+    
+    
+
+    
     public int getUpper_x() {
         return upper_x;
     }
